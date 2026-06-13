@@ -1,0 +1,549 @@
+/* ============================================================================
+   NATURAL WONDER BEAUTY CREATION — STYLES
+   Clean, calming spa aesthetic. Optimized for iPad (portrait & landscape).
+   You normally won't need to edit this file. Colors live in :root below.
+   ========================================================================== */
+
+:root {
+  /* Palette — soft, warm, spa-like */
+  --bg:           #f7f4ef;  /* warm linen background */
+  --surface:      #fffefb;  /* card surface */
+  --surface-2:    #f1ece3;  /* subtle fill */
+  --ink:          #3c3a35;  /* primary text (warm charcoal) */
+  --ink-soft:     #6f6a60;  /* secondary text */
+  --muted:        #a59f93;  /* muted / placeholders */
+  --line:         #e7e0d5;  /* hairline borders */
+  --sage:         #8a9a82;  /* primary accent (eucalyptus) */
+  --sage-deep:    #5f7158;  /* deeper accent for text */
+  --blush:        #c9a89a;  /* secondary warm accent */
+  --gold:         #b8985f;  /* price accent */
+
+  --shadow:       0 1px 2px rgba(60,58,53,.04), 0 8px 24px rgba(60,58,53,.06);
+  --shadow-soft:  0 1px 3px rgba(60,58,53,.05);
+  --radius:       16px;
+  --radius-sm:    11px;
+
+  --serif: "Cormorant Garamond", "Hoefler Text", Georgia, "Times New Roman", serif;
+  --sans:  "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --maxw: 760px;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.5;
+  padding-bottom: 64px;
+  /* nicer rendering */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; }
+
+/* ----------------------------- Header ----------------------------- */
+.site-header {
+  text-align: center;
+  padding: 54px 24px 30px;
+  background:
+    radial-gradient(120% 90% at 50% -10%, #ffffff 0%, rgba(255,255,255,0) 60%),
+    linear-gradient(180deg, #faf8f3 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner { max-width: var(--maxw); margin: 0 auto; }
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: 12px;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+  font-weight: 500;
+}
+.eyebrow::before, .eyebrow::after {
+  content: "";
+  display: inline-block;
+  width: 26px; height: 1px;
+  background: var(--blush);
+  vertical-align: middle;
+  margin: 0 12px;
+  opacity: .8;
+}
+.studio-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(34px, 5.4vw, 50px);
+  line-height: 1.06;
+  letter-spacing: .01em;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+.tagline {
+  margin: 0;
+  font-size: clamp(14px, 1.8vw, 17px);
+  color: var(--ink-soft);
+  font-weight: 300;
+  letter-spacing: .02em;
+}
+
+/* ----------------------------- Search ----------------------------- */
+.search-wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 22px 20px 6px;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0 16px;
+  box-shadow: var(--shadow-soft);
+  transition: border-color .2s, box-shadow .2s;
+}
+.search-box:focus-within {
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px rgba(138,154,130,.18);
+}
+.search-icon { width: 19px; height: 19px; color: var(--muted); flex: none; }
+#search-input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: var(--sans);
+  font-size: 17px;
+  color: var(--ink);
+  padding: 15px 0;
+}
+#search-input::placeholder { color: var(--muted); }
+.search-clear {
+  border: 0; background: var(--surface-2); color: var(--ink-soft);
+  width: 26px; height: 26px; border-radius: 50%; font-size: 18px; line-height: 1;
+  cursor: pointer; flex: none;
+}
+
+/* ----------------------------- Category nav ----------------------------- */
+.category-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  flex-wrap: wrap;            /* wrap instead of scrolling sideways */
+  justify-content: center;    /* center the pills, like the rest of the page */
+  gap: 9px;
+  max-width: var(--maxw);     /* align to the same centered column as the content */
+  margin: 0 auto;
+  padding: 14px 20px;
+  background: rgba(247,244,239,.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.category-nav::-webkit-scrollbar { display: none; }
+.cat-pill {
+  flex: none;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: .01em;
+  padding: 9px 17px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all .18s ease;
+  scroll-snap-align: center;
+}
+.cat-pill:hover { color: var(--ink); }
+.cat-pill.active {
+  background: var(--sage-deep);
+  border-color: var(--sage-deep);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(95,113,88,.25);
+}
+
+/* ----------------------------- Content ----------------------------- */
+.content {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px 20px 0;
+}
+.category {
+  padding: 26px 0 6px;
+  scroll-margin-top: 104px; /* clears the (possibly two-row) sticky nav when jumping */
+}
+.category-head { margin-bottom: 12px; }
+.category-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(25px, 3.4vw, 31px);
+  color: var(--ink);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.category-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--line), transparent);
+}
+.category-desc {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+  font-weight: 300;
+  max-width: 60ch;
+}
+
+/* ----------------------------- Service card ----------------------------- */
+.service-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+.service {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  transition: box-shadow .2s, border-color .2s;
+}
+.service.open {
+  box-shadow: var(--shadow);
+  border-color: #ddd3c4;
+}
+.service-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  font-family: var(--sans);
+  color: var(--ink);
+  padding: 18px 20px;
+  min-height: 64px;
+  cursor: pointer;
+}
+.service-name {
+  flex: 1;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: .005em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.service-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex: none;
+}
+.service-duration {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 300;
+  white-space: nowrap;
+}
+.service-price {
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--gold);
+  white-space: nowrap;
+  letter-spacing: .01em;
+}
+.service-price.empty { color: var(--muted); font-weight: 500; }
+.chevron {
+  width: 18px; height: 18px;
+  color: var(--muted);
+  flex: none;
+  transition: transform .25s ease;
+}
+.service.open .chevron { transform: rotate(180deg); color: var(--sage-deep); }
+
+/* Expanding description (smooth height animation) */
+.service-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .28s ease;
+}
+.service.open .service-detail { grid-template-rows: 1fr; }
+.service-detail-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+.service-detail-inner p {
+  margin: 0;
+  padding: 0 20px 20px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.6;
+  border-top: 1px solid var(--line);
+  padding-top: 15px;
+}
+.detail-empty { color: var(--muted); font-style: italic; }
+
+/* highlight when matched via search */
+mark {
+  background: rgba(184,152,95,.22);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 1px;
+}
+
+/* ----------------------------- No results ----------------------------- */
+.no-results {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 16px;
+  padding: 40px 20px;
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+/* ----------------------------- Footer ----------------------------- */
+.site-footer {
+  max-width: var(--maxw);
+  margin: 40px auto 0;
+  padding: 30px 20px 40px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+.footer-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+.footer-line { margin: 3px 0; font-size: 14px; font-weight: 300; }
+.footer-line a { color: var(--sage-deep); text-decoration: none; }
+
+/* ----------------------------- Staff gear ----------------------------- */
+.staff-gear {
+  position: fixed;
+  right: 16px; bottom: 16px;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(255,254,251,.7);
+  color: var(--muted);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  opacity: .35;
+  transition: opacity .2s, transform .2s;
+  z-index: 40;
+  backdrop-filter: blur(4px);
+}
+.staff-gear:hover, .staff-gear:active { opacity: 1; }
+.staff-gear svg { width: 20px; height: 20px; }
+
+/* ----------------------------- Modal / overlay ----------------------------- */
+/* IMPORTANT: a `display` value overrides the [hidden] attribute, so we must
+   explicitly hide these when hidden, or they'd never disappear. */
+.overlay[hidden],
+.edit-toolbar[hidden] { display: none !important; }
+
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba(40,38,34,.45);
+  backdrop-filter: blur(3px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100;
+  padding: 24px;
+}
+.modal {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  padding: 30px 28px 24px;
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+}
+.modal h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 27px;
+  margin: 0 0 6px;
+}
+.modal-sub { margin: 0 0 20px; color: var(--ink-soft); font-size: 14px; font-weight: 300; }
+.pin-input {
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+  letter-spacing: .4em;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  outline: 0;
+  font-family: var(--sans);
+  color: var(--ink);
+  -webkit-text-security: disc;  /* mask digits without a password field (avoids autofill) */
+}
+#pin-form { margin: 0; }
+.pin-input:focus { border-color: var(--sage); box-shadow: 0 0 0 3px rgba(138,154,130,.18); }
+.pin-error { color: #b4524a; font-size: 13px; margin: 10px 0 0; }
+.modal-actions { display: flex; gap: 10px; margin-top: 20px; }
+
+/* ----------------------------- Buttons ----------------------------- */
+.btn {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 999px;
+  padding: 12px 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: filter .15s, background .15s, opacity .15s;
+}
+.btn-small { font-size: 13px; padding: 9px 15px; }
+.btn-primary { background: var(--sage-deep); color: #fff; flex: 1; }
+.btn-primary:hover { filter: brightness(1.07); }
+.btn-ghost { background: var(--surface-2); color: var(--ink-soft); flex: 1; }
+.btn-ghost:hover { filter: brightness(.98); }
+.btn-dark { background: var(--ink); color: #fff; }
+.btn-dark:hover { filter: brightness(1.2); }
+
+/* ----------------------------- Edit toolbar ----------------------------- */
+.edit-toolbar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 90;
+  background: #2f2d29;
+  color: #f3efe7;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 18px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  box-shadow: 0 -6px 24px rgba(0,0,0,.18);
+  flex-wrap: wrap;
+}
+.edit-badge {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: .04em;
+  background: var(--sage-deep);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  flex: none;
+}
+.edit-hint { font-size: 13px; color: #c9c3b7; font-weight: 300; flex: 1; min-width: 160px; }
+.edit-toolbar-actions { display: flex; gap: 8px; flex: none; }
+
+/* Editable fields (only active in edit mode) */
+body.editing { padding-bottom: 96px; }
+body.editing .staff-gear { display: none; }
+body.editing .service-row { cursor: default; }
+body.editing .chevron { display: none; }
+
+.edit-field {
+  font-family: var(--sans);
+  border: 1px dashed var(--sage);
+  background: rgba(138,154,130,.1);
+  border-radius: 8px;
+  padding: 6px 9px;
+  outline: 0;
+  color: var(--ink);
+  text-align: right;
+}
+.edit-field.price-field {
+  width: 92px;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--gold);
+}
+.edit-field.duration-field {
+  width: 84px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.edit-field:focus { border-style: solid; background: #fff; box-shadow: 0 0 0 3px rgba(138,154,130,.18); }
+
+/* ----------------------------- Toast ----------------------------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 96px;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--ink);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+  opacity: 0;
+  transition: opacity .25s, transform .25s;
+  z-index: 120;
+  pointer-events: none;
+  max-width: 86vw;
+  text-align: center;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ----------------------------- Phones (≤ 600px) ----------------------------- */
+/* On narrow screens the single-row scroller hides most categories. Wrap them
+   so every category is visible and tappable, and don't keep the (now tall)
+   bar sticky — that would eat the screen. */
+@media (max-width: 600px) {
+  .category-nav {
+    position: static;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: visible;
+    gap: 8px;
+    padding: 14px 14px 4px;
+    margin-top: 4px;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 0;
+  }
+  .cat-pill {
+    font-size: 13px;
+    padding: 9px 14px;
+    white-space: normal;          /* allow long names to wrap inside the pill */
+  }
+  .category { scroll-margin-top: 14px; }
+  .site-header { padding: 38px 20px 20px; }
+  .search-wrap { padding: 16px 16px 2px; }
+  .content { padding: 8px 16px 0; }
+  .service-row { padding: 16px 16px; }
+}
+
+/* ----------------------------- Larger screens (landscape iPad) ----------------------------- */
+@media (min-width: 900px) {
+  :root { --maxw: 820px; }
+  .site-header { padding-top: 66px; }
+  .service-row { padding: 20px 24px; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
