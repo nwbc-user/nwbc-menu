@@ -15,9 +15,21 @@
   }
 
   var OVERRIDE_KEY = "nwbc_overrides_v1";
-  var state = { query: "", editing: false };
+  var state = { query: "", editing: false, lang: "en" };
 
   /* ----------------------------- Helpers ----------------------------- */
+  /* Translate a piece of English text to Chinese when the page is in zh mode.
+     Looks through every section of the I18N map; falls back to the original
+     English (brand names, address, prices, anything without an entry). */
+  function tr(s) {
+    if (state.lang !== "zh" || s == null || typeof I18N === "undefined") return s;
+    if (I18N.content[s] != null) return I18N.content[s];
+    if (I18N.durations[s] != null) return I18N.durations[s];
+    if (I18N.business[s] != null) return I18N.business[s];
+    if (I18N.ui[s] != null) return I18N.ui[s];
+    return s;
+  }
+
   function slug(s) {
     return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   }
@@ -67,9 +79,14 @@
   function matches(svc, catName, q) {
     if (!q) return true;
     q = q.toLowerCase();
-    return svc.name.toLowerCase().indexOf(q) !== -1 ||
-           (svc.description || "").toLowerCase().indexOf(q) !== -1 ||
-           catName.toLowerCase().indexOf(q) !== -1;
+    /* Match against both English and the active translation so search works
+       in either language. */
+    var fields = [svc.name, svc.description || "", catName,
+                  tr(svc.name), tr(svc.description || ""), tr(catName)];
+    for (var i = 0; i < fields.length; i++) {
+      if (String(fields[i]).toLowerCase().indexOf(q) !== -1) return true;
+    }
+    return false;
   }
 
   /* ----------------------------- Header / footer ----------------------------- */
@@ -80,9 +97,9 @@
       document.getElementById("studio-name").textContent = b.name;
       document.getElementById("footer-name").textContent = b.name;
     }
-    if (b.tagline) document.getElementById("studio-tagline").textContent = b.tagline;
+    if (b.tagline) document.getElementById("studio-tagline").textContent = tr(b.tagline);
     document.getElementById("footer-address").textContent = b.address || "";
-    document.getElementById("footer-hours").textContent = b.hours || "";
+    document.getElementById("footer-hours").textContent = tr(b.hours || "");
     var ph = document.getElementById("footer-phone");
     if (b.phone) { ph.textContent = b.phone; ph.href = "tel:" + b.phone.replace(/[^\d+]/g, ""); }
     else { ph.parentNode.style.display = "none"; }
@@ -129,13 +146,13 @@
       var h2 = document.createElement("h2");
       h2.className = "category-title";
       var titleSpan = document.createElement("span");
-      setHighlighted(titleSpan, cat.name, q);
+      setHighlighted(titleSpan, tr(cat.name), q);
       h2.appendChild(titleSpan);
       head.appendChild(h2);
       if (cat.description) {
         var desc = document.createElement("p");
         desc.className = "category-desc";
-        desc.textContent = cat.description;
+        desc.textContent = tr(cat.description);
         head.appendChild(desc);
       }
       section.appendChild(head);
@@ -165,7 +182,7 @@
     var nameEl = document.createElement("span");
     nameEl.className = "service-name";
     var nameText = document.createElement("span");
-    setHighlighted(nameText, svc.name, q);
+    setHighlighted(nameText, tr(svc.name), q);
     nameEl.appendChild(nameText);
 
     var meta = document.createElement("span");
@@ -201,7 +218,7 @@
     if (eff.duration) {
       var dur = document.createElement("span");
       dur.className = "service-duration";
-      dur.textContent = eff.duration;
+      dur.textContent = tr(eff.duration);
       meta.appendChild(dur);
     }
     var pr = formatPrice(eff.price);
@@ -225,8 +242,8 @@
     var inner = document.createElement("div");
     inner.className = "service-detail-inner";
     var p = document.createElement("p");
-    if (hasDetail) { setHighlighted(p, svc.description, q); }
-    else { p.className = "detail-empty"; p.textContent = "Ask our team for details about this service."; }
+    if (hasDetail) { setHighlighted(p, tr(svc.description), q); }
+    else { p.className = "detail-empty"; p.textContent = tr("Ask our team for details about this service."); }
     inner.appendChild(p);
     detail.appendChild(inner);
 
@@ -428,8 +445,56 @@
     }, 2600);
   }
 
+  /* ----------------------------- Language toggle ----------------------------- */
+  /* Translate the static page chrome (header eyebrow, search placeholder, staff
+     modal, edit toolbar, no-results message) and the toggle button label. The
+     menu itself is translated through tr() inside render()/fillBusiness(). */
+  function applyStaticUI() {
+    var z = state.lang === "zh";
+    function L(en) {
+      return z && typeof I18N !== "undefined" && I18N.ui[en] ? I18N.ui[en] : en;
+    }
+    function txt(el, en) { if (el) el.textContent = L(en); }
+
+    txt(byId("header-eyebrow"), "San Francisco");
+    txt(byId("pin-title"), "Staff Access");
+    txt(document.querySelector(".modal-sub"), "Enter the staff PIN to edit prices & durations.");
+    txt(byId("pin-error"), "Incorrect PIN. Please try again.");
+    txt(byId("pin-cancel"), "Cancel");
+    txt(byId("pin-submit"), "Unlock");
+    txt(document.querySelector(".edit-badge"), "✎ Staff edit mode");
+    txt(document.querySelector(".edit-hint"), "Tap any price or duration to change it.");
+    txt(byId("export-btn"), "Save to file (export)");
+    txt(byId("reset-btn"), "Reset edits");
+    txt(byId("exit-edit-btn"), "Done");
+    txt(byId("no-results"), "No services match your search.");
+
+    var si = byId("search-input");
+    if (si) si.placeholder = L("Search services…");
+
+    var lt = byId("lang-toggle");
+    if (lt) {
+      lt.textContent = z ? "EN" : "中文";
+      lt.setAttribute("aria-label", z ? "Switch to English" : "切换到中文");
+    }
+  }
+
+  function setLang(lang) {
+    state.lang = (lang === "zh") ? "zh" : "en";
+    document.documentElement.lang = state.lang;
+    applyStaticUI();
+    fillBusiness();
+    render();
+  }
+
+  var langToggle = byId("lang-toggle");
+  if (langToggle) langToggle.addEventListener("click", function () {
+    setLang(state.lang === "zh" ? "en" : "zh");
+  });
+
   /* ----------------------------- Init ----------------------------- */
   fillBusiness();
+  applyStaticUI();
   render();
 
 })();
