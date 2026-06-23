@@ -19,6 +19,7 @@
 
   <!-- ===================== HEADER ===================== -->
   <header class="site-header">
+    <button id="lang-toggle" class="lang-toggle" type="button" aria-label="切换到中文">中文</button>
     <div class="header-inner">
       <p class="eyebrow" id="header-eyebrow">San Francisco</p>
       <h1 class="studio-name" id="studio-name">Natural Wonder Beauty Creation</h1>
@@ -96,8 +97,9 @@
   <!-- Small toast for confirmations -->
   <div id="toast" class="toast" hidden></div>
 
-  <!-- Data first, then the app -->
+  <!-- Data first, then translations, then the app -->
   <script src="services.js"></script>
+  <script src="i18n.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

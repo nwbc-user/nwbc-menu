@@ -92,6 +92,34 @@ a { color: inherit; }
   letter-spacing: .02em;
 }
 
+/* Language toggle (top-right of header) */
+.site-header { position: relative; }
+.lang-toggle {
+  position: absolute;
+  top: 16px; right: 16px;
+  min-width: 46px;
+  padding: 7px 14px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: var(--sage-deep);
+  background: rgba(255,254,251,.8);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(4px);
+  transition: border-color .2s, color .2s, background .2s;
+  z-index: 5;
+}
+.lang-toggle:hover, .lang-toggle:active {
+  border-color: var(--sage);
+  color: var(--ink);
+  background: var(--surface);
+}
+body.editing .lang-toggle { display: none; }
+
 /* ----------------------------- Search ----------------------------- */
 .search-wrap {
   max-width: var(--maxw);
