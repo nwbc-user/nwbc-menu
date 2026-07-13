@@ -385,21 +385,25 @@ mark {
 /* ----------------------------- Footer ----------------------------- */
 .site-footer {
   max-width: var(--maxw);
-  margin: 40px auto 0;
-  padding: 30px 20px 40px;
+  margin: 48px auto 0;
+  padding: 34px 20px 46px;
   text-align: center;
   border-top: 1px solid var(--line);
   color: var(--ink-soft);
 }
 .footer-name {
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 600;
   color: var(--ink);
-  margin: 0 0 10px;
+  margin: 0;
 }
-.footer-line { margin: 3px 0; font-size: 14px; font-weight: 300; }
-.footer-line a { color: var(--sage-deep); text-decoration: none; }
+/* Reuses .eyebrow (sage text + blush hairlines); just retunes spacing/size
+   so the footer mirrors the header's eyebrow as a closing bookend. */
+.footer-eyebrow {
+  margin: 14px 0 0;
+  font-size: 11px;
+}
 
 /* ----------------------------- Phones (≤ 600px) ----------------------------- */
 /* On narrow screens the single-row scroller hides most categories. Wrap them

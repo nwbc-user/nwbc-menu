@@ -324,6 +324,7 @@
     function txt(el, en) { if (el) el.textContent = L(en); }
 
     txt(byId("header-eyebrow"), "San Francisco");
+    txt(byId("footer-eyebrow"), "San Francisco");
     txt(byId("no-results"), "No services match your search.");
 
     var si = byId("search-input");
