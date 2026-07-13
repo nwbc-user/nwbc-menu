@@ -53,49 +53,7 @@
   <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
     <p class="footer-name" id="footer-name">Natural Wonder Beauty Creation</p>
-    <p class="footer-line" id="footer-address"></p>
-    <p class="footer-line" id="footer-hours"></p>
-    <p class="footer-line"><a id="footer-phone" href="#"></a></p>
   </footer>
-
-  <!-- ===================== STAFF EDIT BUTTON ===================== -->
-  <button id="staff-gear" class="staff-gear" aria-label="Staff edit mode" title="Staff edit mode">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path fill="currentColor" d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm9.4 4a7.6 7.6 0 0 0-.13-1.39l2.06-1.6-2-3.46-2.43.98a7.6 7.6 0 0 0-2.4-1.39L15.7 1h-4l-.4 2.74a7.6 7.6 0 0 0-2.4 1.39l-2.43-.98-2 3.46 2.06 1.6A7.6 7.6 0 0 0 2.6 12c0 .47.05.93.13 1.39L.67 14.99l2 3.46 2.43-.98c.7.6 1.51 1.08 2.4 1.39l.4 2.74h4l.4-2.74a7.6 7.6 0 0 0 2.4-1.39l2.43.98 2-3.46-2.06-1.6c.08-.46.13-.92.13-1.39z"/>
-    </svg>
-  </button>
-
-  <!-- ===================== STAFF PIN MODAL ===================== -->
-  <div id="pin-overlay" class="overlay" hidden>
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="pin-title">
-      <h2 id="pin-title">Staff Access</h2>
-      <p class="modal-sub">Enter the staff PIN to edit prices &amp; durations.</p>
-      <form id="pin-form" autocomplete="off">
-        <input id="pin-input" class="pin-input" type="text" inputmode="numeric"
-               autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
-               name="nwbc-staff-pin" placeholder="••••" aria-label="Staff PIN" />
-        <p id="pin-error" class="pin-error" hidden>Incorrect PIN. Please try again.</p>
-        <div class="modal-actions">
-          <button type="button" id="pin-cancel" class="btn btn-ghost">Cancel</button>
-          <button type="submit" id="pin-submit" class="btn btn-primary">Unlock</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- ===================== STAFF EDIT TOOLBAR ===================== -->
-  <div id="edit-toolbar" class="edit-toolbar" hidden>
-    <span class="edit-badge">✎ Staff edit mode</span>
-    <span class="edit-hint">Tap any price or duration to change it.</span>
-    <div class="edit-toolbar-actions">
-      <button id="export-btn" class="btn btn-small btn-primary">Save to file (export)</button>
-      <button id="reset-btn" class="btn btn-small btn-ghost">Reset edits</button>
-      <button id="exit-edit-btn" class="btn btn-small btn-dark">Done</button>
-    </div>
-  </div>
-
-  <!-- Small toast for confirmations -->
-  <div id="toast" class="toast" hidden></div>
 
   <!-- Data first, then translations, then the app -->
   <script src="services.js"></script>

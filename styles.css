@@ -118,7 +118,6 @@ a { color: inherit; }
   color: var(--ink);
   background: var(--surface);
 }
-body.editing .lang-toggle { display: none; }
 
 /* ----------------------------- Search ----------------------------- */
 .search-wrap {
@@ -275,9 +274,43 @@ body.editing .lang-toggle { display: none; }
   font-weight: 400;
   letter-spacing: .005em;
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
   min-width: 0;
+}
+.service-package {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  max-width: 100%;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--sage-deep);
+  background: rgba(138,154,130,.14);
+  border: 1px solid rgba(138,154,130,.32);
+  padding: 4px 6px 4px 12px;
+  border-radius: 999px;
+  letter-spacing: .01em;
+  line-height: 1.3;
+}
+.pkg-label {
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.pkg-detail { color: var(--sage-deep); }
+.pkg-save {
+  font-weight: 700;
+  font-size: 11.5px;
+  letter-spacing: .03em;
+  color: #fff;
+  background: var(--sage-deep);
+  padding: 2px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
 }
 .service-meta {
   display: flex;
@@ -367,172 +400,6 @@ mark {
 }
 .footer-line { margin: 3px 0; font-size: 14px; font-weight: 300; }
 .footer-line a { color: var(--sage-deep); text-decoration: none; }
-
-/* ----------------------------- Staff gear ----------------------------- */
-.staff-gear {
-  position: fixed;
-  right: 16px; bottom: 16px;
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-  background: rgba(255,254,251,.7);
-  color: var(--muted);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  opacity: .35;
-  transition: opacity .2s, transform .2s;
-  z-index: 40;
-  backdrop-filter: blur(4px);
-}
-.staff-gear:hover, .staff-gear:active { opacity: 1; }
-.staff-gear svg { width: 20px; height: 20px; }
-
-/* ----------------------------- Modal / overlay ----------------------------- */
-/* IMPORTANT: a `display` value overrides the [hidden] attribute, so we must
-   explicitly hide these when hidden, or they'd never disappear. */
-.overlay[hidden],
-.edit-toolbar[hidden] { display: none !important; }
-
-.overlay {
-  position: fixed; inset: 0;
-  background: rgba(40,38,34,.45);
-  backdrop-filter: blur(3px);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 100;
-  padding: 24px;
-}
-.modal {
-  background: var(--surface);
-  border-radius: var(--radius);
-  box-shadow: 0 20px 60px rgba(0,0,0,.25);
-  padding: 30px 28px 24px;
-  width: 100%;
-  max-width: 360px;
-  text-align: center;
-}
-.modal h2 {
-  font-family: var(--serif);
-  font-weight: 600;
-  font-size: 27px;
-  margin: 0 0 6px;
-}
-.modal-sub { margin: 0 0 20px; color: var(--ink-soft); font-size: 14px; font-weight: 300; }
-.pin-input {
-  width: 100%;
-  text-align: center;
-  font-size: 26px;
-  letter-spacing: .4em;
-  padding: 12px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: var(--surface-2);
-  outline: 0;
-  font-family: var(--sans);
-  color: var(--ink);
-  -webkit-text-security: disc;  /* mask digits without a password field (avoids autofill) */
-}
-#pin-form { margin: 0; }
-.pin-input:focus { border-color: var(--sage); box-shadow: 0 0 0 3px rgba(138,154,130,.18); }
-.pin-error { color: #b4524a; font-size: 13px; margin: 10px 0 0; }
-.modal-actions { display: flex; gap: 10px; margin-top: 20px; }
-
-/* ----------------------------- Buttons ----------------------------- */
-.btn {
-  font-family: var(--sans);
-  font-size: 15px;
-  font-weight: 400;
-  border-radius: 999px;
-  padding: 12px 20px;
-  cursor: pointer;
-  border: 1px solid transparent;
-  transition: filter .15s, background .15s, opacity .15s;
-}
-.btn-small { font-size: 13px; padding: 9px 15px; }
-.btn-primary { background: var(--sage-deep); color: #fff; flex: 1; }
-.btn-primary:hover { filter: brightness(1.07); }
-.btn-ghost { background: var(--surface-2); color: var(--ink-soft); flex: 1; }
-.btn-ghost:hover { filter: brightness(.98); }
-.btn-dark { background: var(--ink); color: #fff; }
-.btn-dark:hover { filter: brightness(1.2); }
-
-/* ----------------------------- Edit toolbar ----------------------------- */
-.edit-toolbar {
-  position: fixed;
-  left: 0; right: 0; bottom: 0;
-  z-index: 90;
-  background: #2f2d29;
-  color: #f3efe7;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 12px 18px;
-  padding-bottom: max(12px, env(safe-area-inset-bottom));
-  box-shadow: 0 -6px 24px rgba(0,0,0,.18);
-  flex-wrap: wrap;
-}
-.edit-badge {
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: .04em;
-  background: var(--sage-deep);
-  color: #fff;
-  padding: 6px 12px;
-  border-radius: 999px;
-  flex: none;
-}
-.edit-hint { font-size: 13px; color: #c9c3b7; font-weight: 300; flex: 1; min-width: 160px; }
-.edit-toolbar-actions { display: flex; gap: 8px; flex: none; }
-
-/* Editable fields (only active in edit mode) */
-body.editing { padding-bottom: 96px; }
-body.editing .staff-gear { display: none; }
-body.editing .service-row { cursor: default; }
-body.editing .chevron { display: none; }
-
-.edit-field {
-  font-family: var(--sans);
-  border: 1px dashed var(--sage);
-  background: rgba(138,154,130,.1);
-  border-radius: 8px;
-  padding: 6px 9px;
-  outline: 0;
-  color: var(--ink);
-  text-align: right;
-}
-.edit-field.price-field {
-  width: 92px;
-  font-family: var(--serif);
-  font-size: 19px;
-  font-weight: 600;
-  color: var(--gold);
-}
-.edit-field.duration-field {
-  width: 84px;
-  font-size: 13px;
-  color: var(--ink-soft);
-}
-.edit-field:focus { border-style: solid; background: #fff; box-shadow: 0 0 0 3px rgba(138,154,130,.18); }
-
-/* ----------------------------- Toast ----------------------------- */
-.toast {
-  position: fixed;
-  left: 50%;
-  bottom: 96px;
-  transform: translateX(-50%) translateY(10px);
-  background: var(--ink);
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 999px;
-  font-size: 14px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.2);
-  opacity: 0;
-  transition: opacity .25s, transform .25s;
-  z-index: 120;
-  pointer-events: none;
-  max-width: 86vw;
-  text-align: center;
-}
-.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 /* ----------------------------- Phones (≤ 600px) ----------------------------- */
 /* On narrow screens the single-row scroller hides most categories. Wrap them
