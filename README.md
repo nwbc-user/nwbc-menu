@@ -1,8 +1,8 @@
 # Natural Wonder Beauty Creation — Services Menu App
 
 A simple, no-database website that shows your service menu on an iPad. Customers
-tap a service to see its description, duration, and price. You can edit prices
-right on the iPad or in one file.
+tap a service to see its description, duration, and price. You edit prices and
+durations by changing one file.
 
 ## The files
 
@@ -22,20 +22,8 @@ nice defaults if you're offline).
 ## Editing your prices and durations
 
 **All prices are blank right now** so you can fill in your own. They show a small
-"—" until you add them. There are two ways to edit:
+"—" until you add them.
 
-### Option A — Edit on the iPad (easiest)
-1. Tap the small **⚙ gear** in the bottom-right corner.
-2. Enter the staff PIN. The default is **2468** — change it (see below).
-3. Tap any **price** or **duration** field and type the new value.
-4. Changes save automatically **on that iPad**.
-5. Tap **Done** when finished.
-
-To make those edits permanent for *every* device (and survive clearing the
-browser), tap **"Save to file (export)"** in edit mode. It downloads an updated
-`services.js`. Replace the old `services.js` with it (see deploy steps below).
-
-### Option B — Edit the file directly
 Open `services.js` in any text editor. Change the text inside the `"quotes"`:
 
 ```js
@@ -45,12 +33,20 @@ Open `services.js` in any text editor. Change the text inside the `"quotes"`:
 
 You can type `"95"` or `"$95"` — both show as **$95**. Save the file and refresh.
 
-### Change the staff PIN
-In `services.js`, near the top, change:
+### Package deals
+To offer a multi-visit package, add a `package` line to a service with the
+number of visits and the package price:
 
 ```js
-staffPin: "2468",   // change this to your own number
+{ name: "European Facial Treatment", price: "120", duration: "75 min",
+  package: { count: 10, price: 950 },
+  description: "A classic deep-cleansing facial..." },
 ```
+
+It shows as a **PACKAGE · 10 treatments · $950** badge under the service name,
+and the **Save %** is calculated for you from the single price (here `$120` × 10
+vs. `$950` = **Save 21%**). Change either number and the discount updates itself.
+To remove a package, delete its `package` line.
 
 ### Heads up on durations
 I pre-filled typical durations (like `60 min`) as a starting point. **Please
@@ -67,9 +63,9 @@ area-based treatments were left blank on purpose.
 6. Wait about a minute. Your site appears at:
    `https://YOUR-USERNAME.github.io/nwbc-menu/`
 
-To update prices later: export the new `services.js` (Option A) or edit it, then
-in your repo click `services.js` → the pencil ✏️ → paste/replace → **Commit**.
-Or just upload the new `services.js` over the old one. The site updates in ~1 minute.
+To update prices later: edit `services.js`, then in your repo click `services.js`
+→ the pencil ✏️ → paste/replace → **Commit**. Or just upload the new `services.js`
+over the old one. The site updates in ~1 minute.
 
 ## Set up the iPad as a walk-in kiosk
 

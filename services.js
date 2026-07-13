@@ -1,18 +1,13 @@
-/* Natural Wonder Beauty Creation — exported service menu
-   Generated 6/12/2026, 9:20:11 PM
+/* Natural Wonder Beauty Creation — service menu
    To change a price or duration, edit the value inside the "quotes" below,
    save the file, and upload it to replace services.js on GitHub. */
 
 const SERVICES_DATA = {
   "business": {
     "name": "Natural Wonder Beauty Creation",
-    "tagline": "Advanced skincare & beauty, crafted with care",
-    "address": "650 Taraval St, San Francisco, CA 94116",
-    "phone": "(415) 661-9888",
-    "hours": "Tue–Sun 10:00am–6:30pm · Closed Monday"
+    "tagline": "Advanced skincare & beauty, crafted with care"
   },
   "currency": "$",
-  "staffPin": "2468",
   "categories": [
     {
       "name": "Basic Skin Care",
@@ -20,25 +15,27 @@ const SERVICES_DATA = {
       "services": [
         {
           "name": "European Facial Treatment",
-          "price": "",
-          "duration": "60 min",
+          "price": "120",
+          "duration": "75 min",
+          "package": { "count": 10, "price": 950 },
           "description": "A classic deep-cleansing facial that exfoliates, extracts, and hydrates to leave skin refreshed and glowing."
         },
         {
           "name": "ACNE Treatment",
-          "price": "",
-          "duration": "60 min",
+          "price": "120",
+          "duration": "75 min",
+          "package": { "count": 10, "price": 950 },
           "description": "A targeted facial that deep-cleans congested pores and calms breakouts to promote clearer, more balanced skin."
         },
         {
           "name": "Clé de Peau Treatment",
-          "price": "",
-          "duration": "60 min",
+          "price": "150",
+          "duration": "75 min",
           "description": "A luxurious facial using premium Clé de Peau Beauté products for radiant, refined, and deeply nourished skin."
         },
         {
           "name": "Hot Stone Aromatherapy",
-          "price": "",
+          "price": "150",
           "duration": "75 min",
           "description": "Warm stones and aromatic oils melt away tension while relaxing the face and body for total calm."
         }
@@ -50,33 +47,38 @@ const SERVICES_DATA = {
       "services": [
         {
           "name": "Collagen Ultrasound Treatment",
-          "price": "",
-          "duration": "60 min",
+          "price": "180",
+          "duration": "90 min",
+          "package": { "count": 10, "price": 1500 },
           "description": "Ultrasound technology helps infuse collagen to firm, plump, and smooth the look of fine lines."
         },
         {
-          "name": "Rose Hydration Treatment",
-          "price": "",
-          "duration": "60 min",
-          "description": "A soothing rose-infused treatment that replenishes moisture for dewy, supple, calmed skin."
+          "name": "Rose / Q10 / Tea Tree Treatment",
+          "price": "180",
+          "duration": "90 min",
+          "package": { "count": 10, "price": 1500 },
+          "description": "Choose from three targeted facials — rose hydration for dewy, supple skin; antioxidant Q10 to energize and revitalize; or purifying tea tree to balance oil and clarify — each tailored to your skin's needs."
         },
         {
-          "name": "Q10 Activated Cells Treatment",
-          "price": "",
-          "duration": "60 min",
-          "description": "An antioxidant-rich Q10 treatment that energizes skin and supports a fresh, revitalized look."
+          "name": "Bio Light Treatment",
+          "price": "180",
+          "duration": "90 min",
+          "package": { "count": 10, "price": 1500 },
+          "description": "Soothing bio-light therapy that calms, clarifies, and boosts radiance for a healthier-looking, more even complexion."
         },
         {
-          "name": "Tea Tree Balance Oil Treatment",
-          "price": "",
-          "duration": "60 min",
-          "description": "A purifying tea tree treatment that balances oil and clarifies for a fresh, comfortable finish."
+          "name": "Living Cell Treatment",
+          "price": "180",
+          "duration": "90 min",
+          "package": { "count": 10, "price": 1500 },
+          "description": "A nutrient-rich, cell-renewing treatment that revitalizes tired skin for a firmer, fresher, more youthful-looking appearance."
         },
         {
-          "name": "Brightening Treatment",
-          "price": "",
-          "duration": "60 min",
-          "description": "A radiance-boosting treatment that targets dullness and uneven tone for luminous, even-looking skin."
+          "name": "Hydro Peel Treatment",
+          "price": "180",
+          "duration": "90 min",
+          "package": { "count": 10, "price": 1500 },
+          "description": "A gentle hydro-exfoliation that resurfaces and deeply hydrates, sweeping away impurities for smooth, refreshed, glowing skin."
         }
       ]
     },
@@ -86,21 +88,38 @@ const SERVICES_DATA = {
       "services": [
         {
           "name": "Intensive Pulsed Light Treatment",
-          "price": "",
-          "duration": "45 min",
+          "price": "300",
+          "duration": "120 min",
+          "package": { "count": 10, "price": 1980 },
           "description": "Gentle pulsed light targets uneven tone and sun-related concerns to reveal clearer, brighter-looking skin."
         },
         {
           "name": "Radiofrequency Treatment",
-          "price": "",
-          "duration": "45 min",
+          "price": "300",
+          "duration": "120 min",
+          "package": { "count": 10, "price": 1980 },
           "description": "RF energy gently warms deeper layers of skin to firm and tighten its appearance."
         },
         {
           "name": "3D Tighten Outline Treatment",
-          "price": "",
-          "duration": "45 min",
+          "price": "500",
+          "duration": "120 min",
+          "package": { "count": 5, "price": 1800 },
           "description": "A contouring treatment that lifts and defines facial outlines for a firmer, sculpted appearance."
+        },
+        {
+          "name": "Picosecond Laser Treatment",
+          "price": "500",
+          "duration": "120 min",
+          "package": { "count": 5, "price": 1800 },
+          "description": "Ultra-fast picosecond laser pulses target pigmentation, dullness, and uneven tone to reveal clearer, brighter, more refined-looking skin."
+        },
+        {
+          "name": "Juvta Hydra Glow Treatment",
+          "price": "300",
+          "duration": "120 min",
+          "package": { "count": 10, "price": 1980 },
+          "description": "A non-invasive hydra-glow facial that deeply hydrates and infuses nutrients for plump, dewy, luminous skin."
         }
       ]
     },
@@ -110,128 +129,126 @@ const SERVICES_DATA = {
       "services": [
         {
           "name": "Upper Lip",
-          "price": "",
+          "price": "12",
           "duration": "",
           "description": ""
         },
         {
           "name": "Lower Chin",
-          "price": "",
+          "price": "15",
           "duration": "",
           "description": ""
         },
         {
           "name": "Eyebrow Shape",
-          "price": "",
+          "price": "20",
           "duration": "",
           "description": ""
         },
         {
-          "name": "Face & Eyebrow Shape",
-          "price": "",
+          "name": "Face Wax (Face & Eyebrow Shape)",
+          "price": "80",
           "duration": "",
           "description": ""
         },
         {
           "name": "Underarm",
-          "price": "",
+          "price": "25",
           "duration": "",
           "description": ""
         },
         {
           "name": "Full Arm (without underarm)",
-          "price": "",
+          "price": "50",
           "duration": "",
           "description": ""
         },
         {
           "name": "Lower Leg",
-          "price": "",
+          "price": "50",
           "duration": "",
           "description": ""
         },
         {
           "name": "Thigh",
-          "price": "",
+          "price": "80",
           "duration": "",
           "description": ""
         },
         {
           "name": "Back",
-          "price": "",
+          "price": "60",
           "duration": "",
           "description": ""
         },
         {
           "name": "Bikini Line",
-          "price": "",
+          "price": "40",
           "duration": "",
           "description": ""
         },
         {
           "name": "Bikini",
-          "price": "",
+          "price": "60",
           "duration": "",
           "description": ""
         },
         {
-          "name": "Thigh & Bikini",
-          "price": "",
+          "name": "Full Bikini (Brazilian)",
+          "price": "80",
           "duration": "",
           "description": ""
         },
         {
           "name": "Full Leg",
-          "price": "",
+          "price": "90",
           "duration": "",
           "description": ""
         },
         {
           "name": "Full Leg & Bikini",
-          "price": "",
+          "price": "150",
           "duration": "",
           "description": ""
         }
       ]
     },
     {
-      "name": "Body Massage",
+      "name": "Body Treatment",
       "description": "Soothing bodywork and wellness rituals to relax and renew.",
       "services": [
         {
-          "name": "Full Body Massage",
-          "price": "",
-          "duration": "60 min",
-          "description": "A full-body massage that eases muscle tension and restores relaxation from head to toe."
+          "name": "Endermologie Session",
+          "price": "150",
+          "duration": "",
+          "package": { "count": 10, "price": 1200 },
+          "description": "A non-invasive mechanical massage and suction treatment to smooth skin, reduce the look of cellulite, and boost circulation."
         },
         {
-          "name": "Ear Candle",
-          "price": "",
-          "duration": "30 min",
-          "description": "A gentle ear-candling ritual designed to soothe and relax."
-        },
-        {
-          "name": "Navel Candle",
-          "price": "",
-          "duration": "30 min",
-          "description": "A warming navel-candling treatment for deep relaxation and comfort."
-        },
-        {
-          "name": "MB Body Slimming",
-          "price": "",
-          "duration": "45 min",
-          "description": "A body-contouring treatment that targets problem areas to help refine and smooth the silhouette."
-        },
-        {
-          "name": "Capsule Sauna Detox",
-          "price": "",
-          "duration": "30 min",
+          "name": "Capsule Sauna Detox Treatment",
+          "price": "80",
+          "duration": "",
+          "package": { "count": 10, "price": 600 },
           "description": "A warming capsule sauna session that promotes sweating, relaxation, and a refreshed feeling."
         },
         {
-          "name": "Full Body Exfoliator & 30-Minute Back Massage",
-          "price": "",
-          "duration": "75 min",
+          "name": "Ear Candle Treatment",
+          "price": "80",
+          "duration": "",
+          "package": { "count": 10, "price": 600 },
+          "description": "A gentle ear-candling ritual designed to soothe and relax."
+        },
+        {
+          "name": "Navel Candle Treatment",
+          "price": "80",
+          "duration": "",
+          "package": { "count": 10, "price": 600 },
+          "description": "A warming navel-candling treatment for deep relaxation and comfort."
+        },
+        {
+          "name": "Full Body Exfoliator & 30-Minute Back Massage Treatment",
+          "price": "180",
+          "duration": "",
           "description": "Full-body exfoliation to renew the skin, followed by a relaxing 30-minute back massage."
         }
       ]
@@ -242,51 +259,42 @@ const SERVICES_DATA = {
       "services": [
         {
           "name": "Eye Basic Care",
-          "price": "",
-          "duration": "30 min",
+          "price": "80",
+          "duration": "",
+          "package": { "count": 10, "price": 500 },
           "description": "A nourishing treatment that hydrates and refreshes the delicate eye area."
         },
         {
           "name": "RF Eye Treatment",
-          "price": "",
-          "duration": "30 min",
+          "price": "120",
+          "duration": "",
+          "package": { "count": 10, "price": 800 },
           "description": "Radiofrequency warmth helps firm and smooth the look of the eye area."
         },
         {
           "name": "3D Eye Lifting Treatment",
-          "price": "250",
-          "duration": "45 min",
+          "price": "300",
+          "duration": "",
+          "package": { "count": 10, "price": 1500 },
           "description": "A lifting treatment that targets puffiness and helps the eye area look firmer and brighter."
         },
         {
           "name": "Eyebrow Tint",
-          "price": "",
-          "duration": "15 min",
+          "price": "20",
+          "duration": "",
           "description": "Semi-permanent tint to define and enrich the color of your brows."
         },
         {
           "name": "Eyelash Tint",
-          "price": "",
-          "duration": "20 min",
+          "price": "25",
+          "duration": "",
           "description": "Darkens lashes for a fuller, mascara-free look that lasts."
         },
         {
           "name": "Eyelash Perm",
-          "price": "",
-          "duration": "45 min",
+          "price": "80",
+          "duration": "",
           "description": "Lifts and curls natural lashes for an open, wide-eyed effect."
-        },
-        {
-          "name": "Eyelash Extension",
-          "price": "",
-          "duration": "90 min",
-          "description": "Individual extensions applied for longer, fuller, beautiful lashes."
-        },
-        {
-          "name": "Eyelash Extension Refill",
-          "price": "",
-          "duration": "60 min",
-          "description": "Maintains your lash extensions by refilling areas that have naturally shed."
         }
       ]
     },
@@ -296,81 +304,137 @@ const SERVICES_DATA = {
       "services": [
         {
           "name": "Face",
-          "price": "",
+          "price": "880",
           "duration": "",
+          "package": { "count": 10, "price": 7000 },
           "description": "Non-invasive lifting and tightening across the face."
         },
         {
           "name": "Eye",
-          "price": "",
+          "price": "480",
           "duration": "",
+          "package": { "count": 10, "price": 3000 },
           "description": "Targeted lifting to firm and refresh the eye area."
         },
         {
           "name": "Double Chin",
-          "price": "",
+          "price": "480",
           "duration": "",
+          "package": { "count": 10, "price": 3000 },
           "description": "Helps define the jawline and reduce the look of a double chin."
         },
         {
           "name": "Neck",
-          "price": "",
+          "price": "880",
           "duration": "",
+          "package": { "count": 10, "price": 7000 },
           "description": "Firms and smooths the appearance of the neck."
-        },
-        {
-          "name": "Breast",
-          "price": "",
-          "duration": "",
-          "description": "A lifting treatment to firm and shape the bust area."
-        },
-        {
-          "name": "Bye-Bye Arm",
-          "price": "",
-          "duration": "",
-          "description": "Targets upper-arm laxity for a firmer, more toned look."
-        },
-        {
-          "name": "Belly",
-          "price": "",
-          "duration": "",
-          "description": "Tightens and smooths the appearance of the abdomen."
-        },
-        {
-          "name": "Hip",
-          "price": "",
-          "duration": "",
-          "description": "Firms and refines the contour of the hips."
-        },
-        {
-          "name": "Inner Thigh",
-          "price": "",
-          "duration": "",
-          "description": "Targets the inner thighs for a firmer, smoother look."
         }
       ]
     },
     {
-      "name": "Endermologie",
-      "description": "Experience smoother skin, diminished cellulite, and improved circulation with our non-invasive endermologie services, offering a gentle yet effective mechanical massage and suction technique.",
+      "name": "Laser Hair Removal",
+      "description": "Advanced laser hair removal for smooth, long-lasting results. Pricing varies by area.",
       "services": [
         {
-          "name": "Endermologie Session",
-          "price": "",
-          "duration": "35 min",
-          "description": "A non-invasive mechanical massage and suction treatment to smooth skin, reduce the look of cellulite, and boost circulation."
-        }
-      ]
-    },
-    {
-      "name": "JUVTA Hydra Glow",
-      "description": "Our signature non-invasive hydra-glow treatment.",
-      "services": [
+          "name": "Full Face",
+          "price": "300",
+          "duration": "",
+          "packages": [
+            { "count": 5, "price": 1250 },
+            { "count": 10, "price": 2000 }
+          ],
+          "description": ""
+        },
         {
-          "name": "JUVTA Non-Invasive Hydra Glow Treatment",
-          "price": "",
-          "duration": "60 min",
-          "description": "A non-invasive hydra-glow facial that deeply hydrates and infuses nutrients for plump, dewy, luminous skin."
+          "name": "Lip",
+          "price": "80",
+          "duration": "",
+          "packages": [
+            { "count": 5, "price": 350 },
+            { "count": 10, "price": 500 }
+          ],
+          "description": ""
+        },
+        {
+          "name": "Underarm",
+          "price": "150",
+          "duration": "",
+          "packages": [
+            { "count": 5, "price": 600 },
+            { "count": 10, "price": 1000 }
+          ],
+          "description": ""
+        },
+        {
+          "name": "Full Arm",
+          "price": "350",
+          "duration": "",
+          "packages": [
+            { "count": 5, "price": 1500 },
+            { "count": 10, "price": 2500 }
+          ],
+          "description": ""
+        },
+        {
+          "name": "Bikini",
+          "price": "180",
+          "duration": "",
+          "packages": [
+            { "count": 5, "price": 750 },
+            { "count": 10, "price": 1200 }
+          ],
+          "description": ""
+        },
+        {
+          "name": "Brazilian",
+          "price": "360",
+          "duration": "",
+          "packages": [
+            { "count": 5, "price": 1600 },
+            { "count": 10, "price": 3000 }
+          ],
+          "description": ""
+        },
+        {
+          "name": "Lower Leg",
+          "price": "300",
+          "duration": "",
+          "packages": [
+            { "count": 5, "price": 1400 },
+            { "count": 10, "price": 2500 }
+          ],
+          "description": ""
+        },
+        {
+          "name": "Chest",
+          "price": "300",
+          "duration": "",
+          "packages": [
+            { "count": 5, "price": 1400 },
+            { "count": 10, "price": 2500 }
+          ],
+          "description": ""
+        },
+        {
+          "name": "Back",
+          "price": "350",
+          "duration": "",
+          "packages": [
+            { "count": 5, "price": 1600 },
+            { "count": 10, "price": 3000 }
+          ],
+          "description": ""
+        },
+        {
+          "name": "Back & Shoulder",
+          "price": "600",
+          "duration": "",
+          "packages": [
+            { "count": 5, "price": 2750 },
+            { "count": 10, "price": 4000 }
+          ],
+          "description": ""
         }
       ]
     }
