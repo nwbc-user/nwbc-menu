@@ -1,10 +1,10 @@
-/* Natural Wonder Beauty Creation — service menu
+/* New Natural Wonder Beauty Creation — service menu
    To change a price or duration, edit the value inside the "quotes" below,
    save the file, and upload it to replace services.js on GitHub. */
 
 const SERVICES_DATA = {
   "business": {
-    "name": "Natural Wonder Beauty Creation",
+    "name": "New Natural Wonder Beauty Creation",
     "tagline": "Advanced skincare & beauty, crafted with care"
   },
   "currency": "$",
