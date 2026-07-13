@@ -10,6 +10,47 @@ const SERVICES_DATA = {
   "currency": "$",
   "categories": [
     {
+      "name": "Skin Special Care",
+      "description": "Advanced technology treatments to lift, tighten, and refine.",
+      "services": [
+        {
+          "name": "Intensive Pulsed Light Treatment",
+          "price": "300",
+          "duration": "120 min",
+          "package": { "count": 10, "price": 1980 },
+          "description": "Gentle pulsed light targets uneven tone and sun-related concerns to reveal clearer, brighter-looking skin."
+        },
+        {
+          "name": "Radiofrequency Treatment",
+          "price": "300",
+          "duration": "120 min",
+          "package": { "count": 10, "price": 1980 },
+          "description": "RF energy gently warms deeper layers of skin to firm and tighten its appearance."
+        },
+        {
+          "name": "3D Tighten Outline Treatment",
+          "price": "500",
+          "duration": "120 min",
+          "package": { "count": 5, "price": 1800 },
+          "description": "A contouring treatment that lifts and defines facial outlines for a firmer, sculpted appearance."
+        },
+        {
+          "name": "Picosecond Laser Treatment",
+          "price": "500",
+          "duration": "120 min",
+          "package": { "count": 5, "price": 1800 },
+          "description": "Ultra-fast picosecond laser pulses target pigmentation, dullness, and uneven tone to reveal clearer, brighter, more refined-looking skin."
+        },
+        {
+          "name": "Juvta Hydra Glow Treatment",
+          "price": "300",
+          "duration": "120 min",
+          "package": { "count": 10, "price": 1980 },
+          "description": "A non-invasive hydra-glow facial that deeply hydrates and infuses nutrients for plump, dewy, luminous skin."
+        }
+      ]
+    },
+    {
       "name": "Basic Skin Care",
       "description": "Relaxing, restorative facials to cleanse, nourish, and refresh your skin.",
       "services": [
@@ -79,47 +120,6 @@ const SERVICES_DATA = {
           "duration": "90 min",
           "package": { "count": 10, "price": 1500 },
           "description": "A gentle hydro-exfoliation that resurfaces and deeply hydrates, sweeping away impurities for smooth, refreshed, glowing skin."
-        }
-      ]
-    },
-    {
-      "name": "Skin Special Care",
-      "description": "Advanced technology treatments to lift, tighten, and refine.",
-      "services": [
-        {
-          "name": "Intensive Pulsed Light Treatment",
-          "price": "300",
-          "duration": "120 min",
-          "package": { "count": 10, "price": 1980 },
-          "description": "Gentle pulsed light targets uneven tone and sun-related concerns to reveal clearer, brighter-looking skin."
-        },
-        {
-          "name": "Radiofrequency Treatment",
-          "price": "300",
-          "duration": "120 min",
-          "package": { "count": 10, "price": 1980 },
-          "description": "RF energy gently warms deeper layers of skin to firm and tighten its appearance."
-        },
-        {
-          "name": "3D Tighten Outline Treatment",
-          "price": "500",
-          "duration": "120 min",
-          "package": { "count": 5, "price": 1800 },
-          "description": "A contouring treatment that lifts and defines facial outlines for a firmer, sculpted appearance."
-        },
-        {
-          "name": "Picosecond Laser Treatment",
-          "price": "500",
-          "duration": "120 min",
-          "package": { "count": 5, "price": 1800 },
-          "description": "Ultra-fast picosecond laser pulses target pigmentation, dullness, and uneven tone to reveal clearer, brighter, more refined-looking skin."
-        },
-        {
-          "name": "Juvta Hydra Glow Treatment",
-          "price": "300",
-          "duration": "120 min",
-          "package": { "count": 10, "price": 1980 },
-          "description": "A non-invasive hydra-glow facial that deeply hydrates and infuses nutrients for plump, dewy, luminous skin."
         }
       ]
     },
